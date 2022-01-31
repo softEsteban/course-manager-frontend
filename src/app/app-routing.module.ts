@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/school-info/components/home/home.component';
+import { RecordsComponent } from './modules/school-info/components/records/records.component';
+import { HomeComponent } from './modules/shared/components/home/home.component';
 
 const routes: Routes = [
   {
-    path: "home",
+    path:"",
     component: HomeComponent
+  },
+  {
+    path: "records",
+    component: RecordsComponent
   }
 ];
 
