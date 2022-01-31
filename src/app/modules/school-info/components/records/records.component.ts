@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecordsService } from '../../services/records-service.service'
 
 @Component({
   selector: 'app-records',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordsComponent implements OnInit {
 
-  constructor() { }
+  //Temporal repository
+  public professorsList = [] as any;
+
+  constructor(
+    public recordsService: RecordsService
+  ) { }
 
   ngOnInit(): void {
+    this.getProfessors()
+  }
+
+  //Get professors
+  private getProfessors() {
+    this.recordsService.getProfessors()
+    .subscribe(resp => {
+      this.professorsList= resp
+    })
   }
 
 }

@@ -28,10 +28,12 @@
         <div class="col s6">
             <select class="browser-default">
                 <option value="" disabled selected>Choose a professor</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-              </select>
+
+                <ng-container *ngFor="let item of professorsList">
+                    <option value="{{item.id}}">{{item.name}}</option>
+                </ng-container>
+
+            </select>
         </div>
 
         <div class="col s6 my-button">
