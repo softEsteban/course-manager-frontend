@@ -1,11 +1,17 @@
 <style>
     .my-dashboard{
-        height: 200px;
         padding: 20px;
         border-radius: 8px;
         background-color: #90caf945;
     }
 
+    .my-button{
+        margin-top: 15px;
+    }
+
+    .my-combo{
+        margin-top: 15px;
+    }
 </style>
 
 <title>Records</title>
@@ -25,25 +31,26 @@
             <p>Select any available professor and consult their subjects, courses and lists of students</p>   
         </div>
 
-        <div class="col s6">
-            <select class="browser-default">
-                <option value="" disabled selected>Choose a professor</option>
 
-                <ng-container *ngFor="let item of professorsList">
-                    <option value="{{item.id}}">{{item.name}}</option>
-                </ng-container>
+        <div class="col s12">
 
-            </select>
+            <form role="form" (ngSubmit)="getSubjects(professorId)">
+
+                <select class="browser-default my-combo" [(ngModel)]="professorId"
+                [ngModelOptions]="{standalone: true}">
+                    <option disabled selected>Choose a professor</option>
+                    <!-- Fillig the combo-->
+                    <ng-container *ngFor="let item of professorsList">
+                        <option [ngValue]="item.id">{{item.name}}</option>
+                    </ng-container>
+                </select>
+                <button class="waves-effect waves-light btn my-button"type="submit"><i class="material-icons left">search</i>Search</button>
+            </form>
+
         </div>
 
-        <div class="col s6 my-button">
-            <a class="waves-effect waves-light btn"><i class="material-icons left">search</i>search</a>
-        </div>
+        
 
 
     </div>
-     
-                
-    
-    
 </div>

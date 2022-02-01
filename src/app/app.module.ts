@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,11 +15,16 @@ import { NavBarComponent } from './modules/shared/components/nav-bar/nav-bar.com
     NavBarComponent,
     HomeComponent,
     RecordsComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports: [
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

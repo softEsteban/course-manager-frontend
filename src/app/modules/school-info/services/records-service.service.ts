@@ -20,5 +20,10 @@ export class RecordsService {
     return this.http.get<Array<any>>(`${this.api}/professors`)
   }
 
+  //Get subjects by professor id
+  public getSubjects(professorId:string){
+    return this.http.get<Array<any>>(`${this.api}/professors/${professorId}/subjects`)
+  }
+
 
 }
