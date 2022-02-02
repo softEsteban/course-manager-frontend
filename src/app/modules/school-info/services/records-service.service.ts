@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Professor } from 'src/app/modules/school-info/models/Professor';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -25,5 +23,9 @@ export class RecordsService {
     return this.http.get<Array<any>>(`${this.api}/professors/${professorId}/subjects`)
   }
 
+  //Get course by id
+  public getCourseById(courseId:string) {
+    return this.http.get<any>(`${this.api}/courses/${courseId}`)
+  }
 
 }

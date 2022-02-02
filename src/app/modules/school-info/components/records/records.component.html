@@ -31,14 +31,12 @@
             <p>Select any available professor and consult their subjects, courses and lists of students</p>   
         </div>
 
-
         <div class="col s12">
-
             <form role="form" (ngSubmit)="getSubjects(professorId)">
 
                 <select class="browser-default my-combo" [(ngModel)]="professorId"
                 [ngModelOptions]="{standalone: true}">
-                    <option disabled selected>Choose a professor</option>
+                    <option value="" disabled selected>Choose a professor</option>
                     <!-- Fillig the combo-->
                     <ng-container *ngFor="let item of professorsList">
                         <option [ngValue]="item.id">{{item.name}}</option>
@@ -46,11 +44,27 @@
                 </select>
                 <button class="waves-effect waves-light btn my-button"type="submit"><i class="material-icons left">search</i>Search</button>
             </form>
-
         </div>
 
-        
-
-
     </div>
+
+    <div class="my-table" *ngIf="shown">
+        <h6>Subjects dictated by the professor</h6>
+        <table class="centered">
+            <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Course</th>
+            </tr>
+            </thead>
+
+            <tbody *ngFor="let subject of subjectsList">
+            <tr>
+                <td>{{subject.name}}</td>
+                <td>{{subject.level}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

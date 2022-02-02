@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RecordsService } from '../../services/records-service.service'
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -12,6 +11,8 @@ export class RecordsComponent implements OnInit {
 
   //professorId to query database through api request
   professorId: string = "";
+  //hides or shows table
+  shown: boolean = false;
   
 
   //Temporal repository
@@ -19,8 +20,7 @@ export class RecordsComponent implements OnInit {
   public subjectsList = [] as any;
 
   constructor(
-    public recordsService: RecordsService,
-    private fb: FormBuilder
+    public recordsService: RecordsService
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +44,20 @@ export class RecordsComponent implements OnInit {
         .subscribe(resp=>{
           this.subjectsList=resp
           console.log(this.subjectsList)
+          this.getCoursesLevels(this.subjectsList)
+          this.shown=true;
         })
+  }
+
+  //Get courses levels
+  public getCoursesLevels(subjectsList:any) {
+    for (let index = 0; index < subjectsList.length; index++) {
+      
+      this.recordsService.getCourseById(subjectsList[index].courseId)
+          .subscribe(resp=>{
+          subjectsList[index]["level"] = resp.level
+          })
+    }
   }
 
 
