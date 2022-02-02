@@ -28,4 +28,9 @@ export class RecordsService {
     return this.http.get<any>(`${this.api}/courses/${courseId}`)
   }
 
+  //Get students by course id using filter
+  public getStudents(courseId:string) {
+    return this.http.get<Array<any>>(`${this.api}/students/?filter[where][courseId]=${courseId}`)
+  }
+
 }
