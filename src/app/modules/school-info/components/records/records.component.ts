@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { RecordsService } from '../../services/records-service.service'
-
 
 @Component({
   selector: 'app-records',
@@ -22,7 +21,7 @@ export class RecordsComponent implements OnInit {
 
   constructor(
     public recordsService: RecordsService
-  ) { }
+    ) { }
 
   ngOnInit(): void {
     this.getProfessors()
@@ -61,14 +60,22 @@ export class RecordsComponent implements OnInit {
     }
   }
 
-  //Get students
-  public getStudents(courseId:string) {
-    this.recordsService.getStudents(courseId)
-        .subscribe(resp=>{
-          console.log(resp)
-        })
+  //Get course id
+  public getCourseId(courseId:string) {
+    console.log(courseId)
   }
+  
 
+  //Get students
+  // public getStudents(courseId:string) {
+  //   this.recordsService.getStudents(courseId)
+  //       .subscribe(resp=>{
+  //         console.log(resp)
+
+  //       })
+  // }
+
+ 
 
   
 

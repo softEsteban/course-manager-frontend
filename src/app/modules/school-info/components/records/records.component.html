@@ -72,7 +72,10 @@
             <tr>
                 <td>{{subject.name}}</td>
                 <td>{{subject.level}}</td>
-                <td> <a class="btn-floating btn-large waves-effect waves-light blue darken-1 my-button2" (click)="getStudents(subject.courseId)"><i class="material-icons">list</i></a> </td>                
+                <td> <a class="btn-floating btn-large waves-effect waves-light 
+                blue darken-1 my-button2" (click)="getCourseId(subject.courseId)"
+                [routerLink]="['/course-details', subject.courseId]">
+                <i class="material-icons">list</i></a> </td>                
             </tr>
             </tbody>
         </table>
