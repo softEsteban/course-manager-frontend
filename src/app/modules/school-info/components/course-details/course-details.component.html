@@ -1,6 +1,27 @@
 <title>Course details</title>
 
 <div class="container">
-    <h3>Course</h3>
+    <h3 id="course-level">Course Info</h3>
+
+    <p><i>level</i> <span id="spancito-1">  - </span></p>
+    <p><i>classroom</i> <span id="spancito-2">  - </span></p>
+    <br>
     <p>Students List</p>
+
+    <table class="centered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        </thead>
+
+        <tbody *ngFor="let student of studentsList">
+        <tr>
+            <td>{{student.name}}</td>
+            <td>In progress</td>
+        </tr>
+        </tbody>
+    </table>
+    
 </div>

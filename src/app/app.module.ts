@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CourseDetailsComponent } from './modules/school-info/components/course-details/course-details.component';
 import { RecordsComponent } from './modules/school-info/components/records/records.component';
 import { HomeComponent } from './modules/shared/components/home/home.component';
 import { NavBarComponent } from './modules/shared/components/nav-bar/nav-bar.component';
@@ -14,7 +15,8 @@ import { NavBarComponent } from './modules/shared/components/nav-bar/nav-bar.com
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    RecordsComponent
+    RecordsComponent,
+    CourseDetailsComponent
     ],
   imports: [
     BrowserModule,

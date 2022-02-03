@@ -17,7 +17,6 @@ export class RecordsComponent implements OnInit {
   //Temporal repository
   public professorsList = [] as any;
   public subjectsList = [] as any;
-  public studentsList= [] as any;
 
   constructor(
     public recordsService: RecordsService
@@ -60,23 +59,6 @@ export class RecordsComponent implements OnInit {
     }
   }
 
-  //Get course id
-  public getCourseId(courseId:string) {
-    console.log(courseId)
-  }
-  
 
-  //Get students
-  // public getStudents(courseId:string) {
-  //   this.recordsService.getStudents(courseId)
-  //       .subscribe(resp=>{
-  //         console.log(resp)
-
-  //       })
-  // }
-
- 
-
-  
 
 }
